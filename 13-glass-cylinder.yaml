@@ -1,0 +1,268 @@
+f_imageplaneDistance: 3
+f_imageplaneHeight: .6
+f_imageplaneWidth: .6
+i_height: 101
+i_width: 101
+v3_eye: [0, 0, 0]
+v3_eyeOut: [0, 0, -1]
+v3_up: [0, 1, 0]
+
+a_geometries:
+- s_type: cylinder
+  v3_center: [0, 0, -510]
+  f_radius: 25
+  f_height: 80
+  j_material:
+    b_glass: true
+    v3_diffuse: [.5, .5 ,.5]
+- j_material:
+    v3_diffuse: [0.0, 0.0, 0.0]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-100.5, -100.5, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-100.5, -71.79, -600.0]
+- j_material:
+    v3_diffuse: [0.0, 0.0, 0.29]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-100.5, -43.07, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-100.5, -14.36, -600.0]
+- j_material:
+    v3_diffuse: [0.0, 0.0, 0.57]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-100.5, 14.36, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-100.5, 43.07, -600.0]
+- j_material:
+    v3_diffuse: [0.0, 0.0, 0.86]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-100.5, 71.79, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-71.79, -100.5, -600.0]
+- j_material:
+    v3_diffuse: [0.14, 0.0, 0.14]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-71.79, -71.79, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-71.79, -43.07, -600.0]
+- j_material:
+    v3_diffuse: [0.14, 0.0, 0.43]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-71.79, -14.36, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-71.79, 14.36, -600.0]
+- j_material:
+    v3_diffuse: [0.14, 0.0, 0.71]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-71.79, 43.07, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-71.79, 71.79, -600.0]
+- j_material:
+    v3_diffuse: [0.29, 0.0, 0.0]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-43.07, -100.5, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-43.07, -71.79, -600.0]
+- j_material:
+    v3_diffuse: [0.29, 0.0, 0.29]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-43.07, -43.07, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-43.07, -14.36, -600.0]
+- j_material:
+    v3_diffuse: [0.29, 0.0, 0.57]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-43.07, 14.36, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-43.07, 43.07, -600.0]
+- j_material:
+    v3_diffuse: [0.29, 0.0, 0.86]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-43.07, 71.79, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-14.36, -100.5, -600.0]
+- j_material:
+    v3_diffuse: [0.43, 0.0, 0.14]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-14.36, -71.79, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-14.36, -43.07, -600.0]
+- j_material:
+    v3_diffuse: [0.43, 0.0, 0.43]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-14.36, -14.36, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-14.36, 14.36, -600.0]
+- j_material:
+    v3_diffuse: [0.43, 0.0, 0.71]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-14.36, 43.07, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [-14.36, 71.79, -600.0]
+- j_material:
+    v3_diffuse: [0.57, 0.0, 0.0]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [14.36, -100.5, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [14.36, -71.79, -600.0]
+- j_material:
+    v3_diffuse: [0.57, 0.0, 0.29]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [14.36, -43.07, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [14.36, -14.36, -600.0]
+- j_material:
+    v3_diffuse: [0.57, 0.0, 0.57]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [14.36, 14.36, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [14.36, 43.07, -600.0]
+- j_material:
+    v3_diffuse: [0.57, 0.0, 0.86]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [14.36, 71.79, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [43.07, -100.5, -600.0]
+- j_material:
+    v3_diffuse: [0.71, 0.0, 0.14]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [43.07, -71.79, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [43.07, -43.07, -600.0]
+- j_material:
+    v3_diffuse: [0.71, 0.0, 0.43]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [43.07, -14.36, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [43.07, 14.36, -600.0]
+- j_material:
+    v3_diffuse: [0.71, 0.0, 0.71]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [43.07, 43.07, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [43.07, 71.79, -600.0]
+- j_material:
+    v3_diffuse: [0.86, 0.0, 0.0]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [71.79, -100.5, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [71.79, -71.79, -600.0]
+- j_material:
+    v3_diffuse: [0.86, 0.0, 0.29]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [71.79, -43.07, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [71.79, -14.36, -600.0]
+- j_material:
+    v3_diffuse: [0.86, 0.0, 0.57]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [71.79, 14.36, -600.0]
+- j_material:
+    v3_diffuse: [1, 1, 1]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [71.79, 43.07, -600.0]
+- j_material:
+    v3_diffuse: [0.86, 0.0, 0.86]
+  s_type: box
+  v3_dim: [28.71, 28.71, 1.0]
+  v3_minPt: [71.79, 71.79, -600.0]
+a_lights:
+- f_intensity: .4
+  v3_position: [200, 100, 0]
+- f_intensity: .9
+  v3_position: [0, 0, -550]
+

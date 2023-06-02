@@ -1,0 +1,148 @@
+# Image Parameters
+i_width: 300
+i_height: 300
+
+# Camera Parameters
+v3_eye: [-0.5, 2, -1.5]
+v3_eyeOut: [1, -1.75, 2]
+v3_up: [0.2, 1, 0]
+f_imageplaneDistance: 1
+f_imageplaneHeight: 1
+f_imageplaneWidth: 1
+
+a_lights:
+    - f_intensity: 0.7
+      v3_position: [3, 0.5, 0]
+    - f_intensity: 0.3
+      v3_position: [2, 6, 0]
+    - f_intensity: 0.6
+      v3_position: [-3, 4, -5]
+
+a_geometries:
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.5, 0.5, 0.5]
+  s_type: box
+  v3_dim: [40, 0.85, 40]
+  v3_minPt: [-20, -1, -20]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [0, 0, 0]
+  s_type: sphere
+  v3_center: [0, 0, 0]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [0, 0, 1]
+  s_type: sphere
+  v3_center: [0, 0, 1]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [0, 1, 0]
+  s_type: sphere
+  v3_center: [0, 1, 0]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [0, 1, 1]
+  s_type: sphere
+  v3_center: [0, 1, 1]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [1, 0, 0]
+  s_type: sphere
+  v3_center: [1, 0, 0]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [1, 0, 1]
+  s_type: sphere
+  v3_center: [1, 0, 1]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [1, 1, 0]
+  s_type: sphere
+  v3_center: [1, 1, 0]
+- f_radius: 0.15
+  j_material:
+    f_specularity: 10
+    v3_diffuse: [1, 1, 1]
+  s_type: sphere
+  v3_center: [1, 1, 1]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 0.06, 1]
+  v3_minPt: [-0.03, -0.03, 0]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 1, 0.06]
+  v3_minPt: [-0.03, 0, -0.03]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [1, 0.06, 0.06]
+  v3_minPt: [0, -0.03, -0.03]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 1, 0.06]
+  v3_minPt: [-0.03, 0, 0.97]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [1, 0.06, 0.06]
+  v3_minPt: [0, -0.03, 0.97]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 0.06, 1]
+  v3_minPt: [-0.03, 0.97, 0]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [1, 0.06, 0.06]
+  v3_minPt: [0, 0.97, -0.03]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [1, 0.06, 0.06]
+  v3_minPt: [0, 0.97, 0.97]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 0.06, 1]
+  v3_minPt: [0.97, -0.03, 0]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 1, 0.06]
+  v3_minPt: [0.97, 0, -0.03]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 1, 0.06]
+  v3_minPt: [0.97, 0, 0.97]
+- j_material:
+    f_specularity: -1
+    v3_diffuse: [0.88, 0.76, 0.43]
+  s_type: box
+  v3_dim: [0.06, 0.06, 1]
+  v3_minPt: [0.97, 0.97, 0]
+

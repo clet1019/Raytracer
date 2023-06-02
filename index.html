@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RayTracer</title>
+    <script type="module">
+        import { RayTracer } from "./RayTracer.js";
+        import { parseSceneYaml, parseSTLarrayBuffer  } from "./sceneParser.js";
+        import { Vector3, vectorScaled } from "./Vector3.js";
+        
+        const sceneFiles = [
+            'scenes/01-paperweight.yaml',
+            'scenes/02-small-checkerboard.yaml',
+            'scenes/03-glossy-spheres-on-glossy-stage.yaml',
+            'scenes/04-glossy-pumpkin.yaml',
+            'scenes/05-simple-tris.yaml',
+            'scenes/06-babyshark.yaml',
+            'scenes/07-small-bunny.yaml',
+            'scenes/08-medium-bunny.yaml',
+            'scenes/09-big-bunny.yaml',
+            'scenes/10-teapot-halo.yaml',
+            'scenes/11-flashy-cones.yaml',
+            'scenes/12-glass-sphere.yaml',
+            'scenes/13-glass-cylinder.yaml',
+            'scenes/14-glass-bunny.yaml',
+            'scenes/15-glass-cups.yaml',
+        ]
+        
+        async function renderFile(filename, canvas) {
+            /*
+            Load the given filename and render it on the given canvas.
+            */
+            // set title to "Rendering ..."
+            const oldTitle = document.title;
+            document.title = "Rendering " + filename;
+
+            // Get the scene file
+            const r = await fetch(filename);
+            const t = await r.text();
+            // Load text into sandbox
+            canvas.nextSibling.value = t;  
+            canvas.nextSibling.style.backgroundColor = 'rgb(255,255,255)';
+            // Render and time it
+            const start = (new Date).getTime();
+            await renderText(t, canvas);
+            const elapsed = (new Date).getTime() - start;
+            console.log(`Rendered ${filename} in ${elapsed/1000}s`);            
+            // Reset title
+            document.title = oldTitle;
+        }
+
+        let theta = 0;
+        const animate = false;
+        
+        async function renderText(t, canvas) {
+            /*
+            Render the scene described by the given text on the given canvas.
+            */
+            const sceneObject = parseSceneYaml(t);
+            await loadMeshes(sceneObject);
+
+            if (animate) {
+            function go() {
+              theta += 0.1;
+              const radius = Math.sqrt(Math.pow(sceneObject.v3_eye.x, 2) + Math.pow(sceneObject.v3_eye.z, 2));
+              sceneObject.v3_eye = new Vector3(
+                radius*Math.cos(theta),
+                4,
+                radius*Math.sin(theta),
+              );
+              sceneObject.v3_eyeOut = new Vector3(
+                -radius*Math.cos(theta),
+                -4,
+                -radius*Math.sin(theta),
+              );
+              renderScene(sceneObject, canvas);
+              setTimeout(go, 0);
+            };
+            go();
+            }
+            renderScene(sceneObject, canvas);
+        }
+
+        async function loadMeshes(scene) {
+            /*
+            Load the triangles for meshes from the given filename 
+            */
+            // clone geometries so we can modify it during for-loop
+            let newGeometries = scene.a_geometries.concat([]); 
+            for (const g of scene.a_geometries) {
+                if (g.s_type === 'mesh') {
+                    const filename = g.s_STLfile;
+                    const a = await fetch(filename);
+                    const b = await a.arrayBuffer();
+                    const triangles = parseSTLarrayBuffer(b, g.v3_scale, g.v3_translate);
+                    for (const t of triangles) {
+                        t.j_material = g.j_material;
+                        t.s_type = 'triangle';
+                    }
+                    // remove the mesh from a_geometries
+                    newGeometries.splice(newGeometries.indexOf(g),1);
+                    // add the triangles
+                    newGeometries = newGeometries.concat(triangles);
+                }
+            }
+            scene.a_geometries = newGeometries;
+        }
+        
+        function renderScene(scene, canvas) {
+            /*
+            Set up the canvas for the given scene.
+            Pass given scene (object) to renderer.
+            Then copy renderer's result onto given canvas.
+            */
+            canvas.width = scene.i_width; 
+            canvas.height = scene.i_height;  
+            const context = canvas.getContext('2d');
+            const image = context.createImageData(canvas.width, canvas.height);
+            const renderer = new RayTracer(scene, image);
+            renderer.render();
+            context.putImageData(image, 0, 0);
+        }        
+  
+
+        function drawLoading(canvas) {
+            /*
+            Indicate on canvas that something is being loaded 
+            */
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = 'white'; // text color
+            ctx.textAlign='center';
+            ctx.textBaseline='middle';
+            ctx.verticalAlign='center';
+
+            let width = Infinity;
+            let size = 256;
+            while (width > canvas.width) {
+                size /= 2;
+                ctx.font=`${size}px Georgia`;
+                width = ctx.measureText('Loading').width;
+            }
+            ctx.lineWidth = size/4;
+            ctx.strokeStyle = 'black';
+            ctx.strokeText('Loading', canvas.width/2, canvas.height/2);
+            ctx.fillText('Loading',canvas.width/2,canvas.height/2);
+        }
+
+        function createCanvasses() {
+            /*
+            Creates a canvas for every filename in the sceneFiles array.
+            Sets up buttons to render to the nearby (below) canvas.
+            Sets up sandbox <textarea> and clickable canvas to re-render.
+            Also adds "render all" button and keyboard shortcut "Home".
+            */
+
+            const buttons = [];
+            for (const file of sceneFiles) {
+                const header = document.createElement('p');
+                
+                // create button
+                const renderButton = document.createElement('button');
+                renderButton.innerHTML = 'Render';
+                header.appendChild(renderButton);
+                buttons.push(renderButton);
+                
+                // create filename box
+                const inputBox = document.createElement('input');
+                inputBox.setAttribute('value', file);
+                header.appendChild(inputBox);
+
+                // create solution button
+                const solutionButton = document.createElement('button');
+                solutionButton.innerHTML = 'Soln';
+                header.appendChild(solutionButton);
+
+                // append them
+                document.body.appendChild(header);
+
+                // hidden solution img
+                const img = document.createElement('img');
+                img.style.width = '400px';
+                img.style.border = '1px solid black';
+                img.style.imageRendering = 'pixelated';
+                img.style.verticalAlign = 'middle';
+                img.style.display = 'none';
+                img.src = file.replace('.yaml','_soln.png');
+
+                // append the hidden img
+                document.body.appendChild(img);
+                
+                // create canvas
+                const canvas = document.createElement('canvas');
+                canvas.style.border = '1px solid black';
+                canvas.style.imageRendering = 'pixelated';
+                // always render canvas to 400 CSS pixels, regardless of underlying pixels                
+                canvas.style.width = '400px';
+                canvas.width = 100;
+                canvas.height = 100;
+                canvas.style.verticalAlign = 'middle';
+                
+                // append canvas
+                document.body.appendChild(canvas);
+
+                // create sandbox
+                const sandbox = document.createElement('textarea');
+                sandbox.style.width = '300px';
+                sandbox.style.height = '300px';
+                sandbox.style.fontSize = '8px';
+                sandbox.style.verticalAlign = 'middle';
+                sandbox.style.marginLeft = '10px';
+                sandbox.setAttribute("spellcheck","false");
+                
+                // append sandbox
+                document.body.appendChild(sandbox);
+                
+                // hang event on render buttons
+                // use async-await so when we renderAll they happen in series
+                renderButton.onclick = async function() {
+                    canvas.style.display = 'inline-block';
+                    img.style.display = 'none';
+                    drawLoading(canvas);
+                    await renderFile(inputBox.value, canvas);
+                }
+
+                canvas.onclick = async function() {
+                    canvas.style.display = 'inline-block';
+                    img.style.display = 'none';
+                    drawLoading(canvas);
+                    // For some reason we need setTimeout() here, for loading screen
+                    // async-await not enough
+                    setTimeout(async function() {
+                        try {
+                            const oldTitle = document.title;
+                            document.title = "Rendering sandbox..."
+                            // render and time it it
+                            const start = (new Date).getTime();
+                            await renderText(sandbox.value, canvas);
+                            const elapsed = (new Date).getTime() - start;
+                            console.log(`Rendered sandbox in ${elapsed/1000}s`);
+                            document.title = oldTitle;
+                        } catch (e) {
+                            sandbox.style.backgroundColor = 'rgb(255,200,200)';
+                            console.error(e);
+                            return;
+                        }
+                        sandbox.style.backgroundColor = 'rgb(255,255,255)';
+                    }, 0);
+                }
+
+                // solution button
+                solutionButton.onmousedown = function() {
+                    img.style.display = 'inline-block';
+                    canvas.style.display = 'none';
+                }
+                solutionButton.onmouseup = function() {
+                    canvas.style.display = 'inline-block';
+                    img.style.display = 'none';
+                }
+            }
+            // Add renderAll button
+            const container = document.createElement('p');
+            const renderAll = document.createElement('button');
+            renderAll.innerHTML = 'Render all';
+            renderAll.style.width="100px";
+            // use async await so they happen in series
+            renderAll.onclick = async function() {
+                for (const b of buttons) {
+                    await b.onclick();
+                }
+            }
+            container.appendChild(renderAll);
+            document.body.appendChild(container);
+            window.onkeydown = function(e) {
+                if (e.key === 'Home') {
+                    renderAll.onclick();
+                }
+            }
+        }
+        window.onload = createCanvasses;
+
+    </script>
+</head>
+
+<body>
+    <p>Enhancements that I completed: </p>
+
+</body>
+</html>

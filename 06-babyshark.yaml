@@ -1,0 +1,31 @@
+# Image Parameters
+i_width: 180
+i_height: 120
+
+# Camera Parameters
+v3_eye: [3, 2.5, .5]
+v3_eyeOut: [-3, -2, 0]
+v3_up: [0, 1, 0]
+f_imageplaneDistance: 1
+f_imageplaneHeight: 0.67
+f_imageplaneWidth: 1
+
+a_geometries:
+    - s_type: mesh
+      s_STLfile: meshes/Fish.stl
+      v3_scale: [3, 3, 3]
+      v3_translate: [0.5, 0.5, 0.5]
+      j_material:
+          v3_diffuse: [1, 0.6, 0.4] 
+          f_specularity: 5
+    - s_type: box
+      v3_minPt: [-20, -3, -20]
+      v3_dim: [40, 0.5, 40] 
+      j_material:
+          v3_diffuse: [0, 0.5, 1] 
+          f_reflectance: 0.9
+a_lights:
+    - f_intensity: 0.6
+      v3_position: [2, 2, 0.5]
+    - f_intensity: 0.4
+      v3_position: [3, 4.0, .5]

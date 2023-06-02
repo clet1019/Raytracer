@@ -1,0 +1,73 @@
+# Image Parameters
+i_width: 300
+i_height: 300
+
+# Camera Parameters
+v3_eye: [0, 0, 0]
+v3_eyeOut: [0, 0, -1]
+v3_up: [0, 1, 0]
+f_imageplaneDistance: 1
+f_imageplaneHeight: 1
+f_imageplaneWidth: 1
+
+a_geometries:
+    - s_type: sphere
+      f_radius: 10
+      v3_center: [-10, 3, -76]
+      j_material:
+          v3_diffuse: [0.8,0.165,0.108]
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 10
+      v3_center: [-10, -2, -65]
+      j_material:
+          v3_diffuse: [0.8,0.165,0.108]
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 10
+      v3_center: [0, -5, -60]
+      j_material:
+          v3_diffuse: [0.8,0.165,0.108]
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 10
+      v3_center: [10, -2, -65]
+      j_material:
+          v3_diffuse: [0.8,0.165,0.108]
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 10
+      v3_center: [10, 2, -75]
+      j_material:
+          v3_diffuse: [0.8,0.165,0.108]
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 10
+      v3_center: [0, 5, -80]
+      j_material:
+          v3_diffuse: [0.8,0.165,0.108]
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 7.5
+      v3_center: [0.0, 9, -65]
+      j_material:
+          v3_diffuse: [0,0.3,0]
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 200
+      v3_center: [0, -190, -160]
+      j_material:
+          v3_diffuse: [0.5,0.5,0.5]
+          f_specularity: 31
+          f_reflectance: 0.5
+
+a_lights:
+    - f_intensity: 1
+      v3_position: [60, 60, 0]

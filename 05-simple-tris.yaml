@@ -1,0 +1,37 @@
+# Image Parameters
+i_width: 31
+i_height: 31
+
+# Camera Parameters
+v3_eye: [0, 0, 0]
+v3_eyeOut: [0, 0, -1]
+v3_up: [0, 1, 0]
+f_imageplaneDistance: 1
+f_imageplaneHeight: 1
+f_imageplaneWidth: 1
+
+a_geometries:
+    - s_type: triangle
+      v3_pt0: [-0.8, -0.4, -3]
+      v3_pt1: [-0.8, -0.9, -3]
+      v3_pt2: [-0.3, -0.9, -3]
+      j_material:
+          v3_diffuse: [1, 0, 0]
+          f_specularity: 10
+    - s_type: triangle
+      v3_pt0: [-0.75, 0.75, -4.5]
+      v3_pt1: [-0.75, -0.75, -4.5]
+      v3_pt2: [0.75, -0.75, -4.5]
+      j_material:
+          v3_diffuse: [0, 1, 0]
+          f_specularity: -1
+    - s_type: sheet
+      v3_pt0: [-4,  4, -9]
+      v3_pt1: [-4, -4, -9]
+      v3_pt2: [ 4, -4, -9]
+      j_material:
+          v3_diffuse: [0, 0, 1]
+          f_specularity: 21 
+a_lights:
+    - f_intensity: 1
+      v3_position: [-2, -0.5, 0]

@@ -1,0 +1,59 @@
+# Image Parameters
+i_width: 270
+i_height: 180
+
+# Camera Parameters
+v3_eye: [2, 1.0, 3]
+v3_eyeOut: [-.40, -.35, -1]
+v3_up: [0, 1, 0]
+f_imageplaneDistance: 1.2
+f_imageplaneHeight: 0.67
+f_imageplaneWidth: 1
+
+a_geometries:
+    - s_type: mesh
+      s_STLfile: meshes/Cup.stl
+      v3_scale: [1, .8, 1]
+      v3_translate: [.15, -0.1, 0]
+      j_material:
+          b_glass: True
+    - s_type: mesh
+      s_STLfile: meshes/Cup.stl
+      v3_scale: [1, 1.1, 1]
+      v3_translate: [1.55, 0, 0]
+      j_material:
+          b_glass: True
+    - s_type: box
+      v3_minPt: [-30, -1, -30]
+      v3_dim: [60, 0.4, 60]
+      j_material:
+          v3_diffuse: [.4, .4, .4]
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 0.5
+      v3_center: [0, 0, -1.5]
+      j_material:
+          v3_diffuse: [1, 0.3, 0.2]        
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 0.5
+      v3_center: [1.5, 0, -1.5]
+      j_material:
+          v3_diffuse: [0.2, 1, 0.3]          
+          f_specularity: 31
+          f_reflectance: 0.5
+    - s_type: sphere
+      f_radius: 0.5
+      v3_center: [-1.5, 0, -1.5]
+      j_material:
+          v3_diffuse: [0.2, 0.3, 1]       
+          f_specularity: 31
+          f_reflectance: 0.5
+a_lights:
+    - f_intensity: 0.5
+      v3_position: [5, 10, 5]
+    - f_intensity: 0.5
+      v3_position: [0, 10, 0]
+    - f_intensity: 0.3
+      v3_position: [0, 1, 3]

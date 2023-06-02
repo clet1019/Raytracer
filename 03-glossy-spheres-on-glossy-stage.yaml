@@ -1,0 +1,62 @@
+# Image Parameters
+i_width: 280
+i_height: 200
+
+# Camera Parameters
+v3_eye: [-1.0, 2.2, 4.5]
+v3_eyeOut: [1.0, -2.7, -5]
+v3_up: [0, 1, 0]
+f_imageplaneDistance: 1
+f_imageplaneHeight: 0.5
+f_imageplaneWidth: 0.7
+
+# Geometries
+a_geometries:
+    - s_type: sphere # Reddish sphere
+      v3_center: [-1, 0, 0]
+      j_material:
+          v3_diffuse: [1, 0.3, 0.2]
+          f_specularity: 50
+          f_reflectance: 0.5
+      f_radius: 0.4
+
+    - s_type: sphere # Greenish sphere
+      v3_center: [0, 0, 0]
+      j_material:
+          v3_diffuse: [0.2, 1, 0.3]
+          f_specularity: 51
+          f_reflectance: 0.5
+      f_radius: 0.4
+
+    - s_type: sphere # Blueish sphere
+      v3_center: [1, 0, 0]
+      j_material:
+          v3_diffuse: [0.2, 0.3, 1]
+          f_specularity: 52
+          f_reflectance: 0.5
+      f_radius: 0.4
+      
+    - s_type: sheet
+      v3_pt0: [9, -0.4, -9]
+      v3_pt1: [-9, -0.4, -9]
+      v3_pt2: [-9, -0.4, 9]
+      j_material:
+          v3_diffuse: [.5, .5, .5]
+          f_specularity: 10
+          f_reflectance: 0.5
+      f_radius: 100
+
+# Lights
+a_lights:
+    - v3_position: [-0.7,0.2,-6]
+      f_intensity: 0.4
+    - v3_position: [0,0.2,-3]
+      f_intensity: 0.4
+    - v3_position: [-1,.8,5]
+      f_intensity: 0.4
+    - v3_position: [1,1,5]
+      f_intensity: 0.2
+    - v3_position: [-2.0,.8,7]
+      f_intensity: 0.2
+    - v3_position: [-3,.8,5]
+      f_intensity: 0.2
